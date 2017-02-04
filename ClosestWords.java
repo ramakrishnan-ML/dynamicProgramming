@@ -9,7 +9,7 @@ import java.util.List;
 
 public class ClosestWords {
   LinkedList<String> closestWords = null;
-
+  int sample = 1;
   int closestDistance = -1;
   int matrixPreChecker = -1;
   int count=1; 
