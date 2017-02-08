@@ -17,11 +17,12 @@ public class ClosestWords {
   int addLetter;
   int deleteLetter;	
   int result;
+
   List<int [][]> wordMatrixList = new ArrayList<int[][]>();
   List<String> misspelledWords = new ArrayList<String>();
 
   int partDist(String w1, String w2, int w1len, int w2len) {
-      int M[][]= new int [w1len+1][w2len+1]; //To include null string.
+     int M[][]= new int [w1len+1][w2len+1]; //To include null string.
 	 // if(w1len==0)
 		 for(i=0;i<=w2len;i++)
 		  {
