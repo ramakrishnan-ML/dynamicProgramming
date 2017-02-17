@@ -78,6 +78,7 @@ public class ClosestWords {
 
   public ClosestWords(String w, List<String> wordList) {//input word and list of words passed as parameter
     int dist = 0;
+    String prevS = "-199"; // Some random number
     //if(matrixPreChecker != -1) {
         //TODO: String compare by character level!
       //  for (String s : misspelledWords) {
@@ -90,10 +91,28 @@ public class ClosestWords {
 
    // }
     for (String s : wordList) {
+
+        // Matrix utilisation counter
+        // Letter comparison! s vs prevS
+        System.out.println("Previous s is" + prevS);
+        int matrixUtil = 0;
+        for(int i = 0; i< s.length(); i++) {
+            if( s.charAt(i) == prevS.charAt(i) && (prevS != "-199")) {
+                matrixUtil ++;
+            }
+            else {
+                break;
+            }
+        }
+
+        //TODO: Whether its working properly.
+        System.out.println ("Matrix utilisation checker is " + matrixUtil);
+
+
         int size = Math.abs(s.length() - w.length());
         if(dist >= size || dist==0)
         {
-          dist = partDist(w, s,w.length(),s.length());
+          dist = partDist(w, s, w.length(), s.length());
           //System.out.println("d(" + w + "," + s + ")=" + dist);
           if (dist < closestDistance || closestDistance == -1) {
             closestDistance = dist;
@@ -103,6 +122,9 @@ public class ClosestWords {
           else if (dist == closestDistance)
             closestWords.add(s);
         }
+        //TODO: Store processed s and the matrix!
+        prevS = s;
+
     }
   }
 
